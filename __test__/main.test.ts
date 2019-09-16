@@ -24,6 +24,7 @@ test("浏览器范围", () => {
   expect(() => ie.is(6, 12)).toThrow();
   expect(ie.is(11)).toBe(false);
   expect(ie.is(6, 11)).toBe(false);
+  expect(ie.is(11, 6)).toBe(false);
   expect(ie.isIe()).toBe(false);
   expect(ie.isEdge()).toBe(false);
 });
