@@ -1,3 +1,5 @@
 *.js
 yarn.lock
 tsconfig.json
+coverage
+__test__
