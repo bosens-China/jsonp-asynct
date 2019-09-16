@@ -15,6 +15,7 @@ yarn add ie-judgement
 ```
 
 file：[umd-Ie](/dist/main.js)
+
 file：[umd-Ie min 文件](/dist/main.js)
 
 ## 快速上手
@@ -27,10 +28,10 @@ if (Ie.is(6, 11)) {
 ```
 
 ## doc
-
-| 实例   | 类型     | 描述                                              |
-| ------ | -------- | ------------------------------------------------- |
-| prefix | string[] | 可选，侦查css的前缀，默认为["Moz", "Webkit", "O", "ms", "Khtml"] |
+``` js
+function Ie(prefix = ["Moz", "Webkit", "O", "ms", "Khtml"]);
+// prefix:string[]
+```
 
 | 方法                                     | 类型    | 描述                        |
 | ---------------------------------------- | ------- | --------------------------- |

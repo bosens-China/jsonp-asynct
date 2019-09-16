@@ -15,6 +15,7 @@ yarn add ie-judgement
 ```
 
 file：[umd-Ie](/dist/main.js)
+
 file：[umd-Ie min File](/dist/main.js)
 
 ## Quick start
@@ -28,9 +29,10 @@ if (Ie.is(6, 11)) {
 
 ## doc
 
-| Example | type     | describe                                                                                     |
-| ------- | -------- | -------------------------------------------------------------------------------------------- |
-| prefix  | string[] | Optional, the prefix for investigating css, defaults to["Moz", "Webkit", "O", "ms", "Khtml"] |
+```js
+function Ie(prefix = ["Moz", "Webkit", "O", "ms", "Khtml"]);
+// prefix:string[]
+```
 
 | Method                                   | type    | describe                                                   |
 | ---------------------------------------- | ------- | ---------------------------------------------------------- |
