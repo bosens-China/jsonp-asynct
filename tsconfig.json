@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@": ["src/*"]
+    },
+    "sourceMap": true,
+    "noImplicitThis": true,
+    "noImplicitReturns": true,
+    "noImplicitAny": true,
+    "target": "es3",
+    "lib": ["es6", "dom"],
+    "declaration": false,
+    "removeComments": true
+  },
+  "include": [
+    "src/**/*",
+    "dist/**/*",
+    "__test__/**/*"
+  ]
+}
