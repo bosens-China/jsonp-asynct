@@ -45,6 +45,7 @@ function Ie(prefix = ["Moz", "Webkit", "O", "ms", "Khtml"]);
 
 - module
   ie > 8
+  
 - cmd
   ie > 5
 
