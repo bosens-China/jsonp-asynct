@@ -28,7 +28,8 @@ if (Ie.is(6, 11)) {
 ```
 
 ## doc
-``` js
+
+```js
 function Ie(prefix = ["Moz", "Webkit", "O", "ms", "Khtml"]);
 // prefix:string[]
 ```
@@ -39,6 +40,13 @@ function Ie(prefix = ["Moz", "Webkit", "O", "ms", "Khtml"]);
 | isEdge                                   | boolean | 判断当前浏览器是否为 Edge   |
 | detectCss(name: string)                  | boolean | 侦查当前浏览器 css 支持情况 |
 | public is(front: number, after?: number) | boolean | 根据给定参数判断是否为 ie   |
+
+## 兼容性
+
+- module
+  ie > 8
+- cmd
+  ie > 5
 
 ## 实现思路
 
