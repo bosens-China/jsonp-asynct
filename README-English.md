@@ -44,9 +44,11 @@ function Ie(prefix = ["Moz", "Webkit", "O", "ms", "Khtml"]);
 ## Compatibility
 
 - module
+
   ie > 8
-  
+
 - cmd
+
   ie > 5
 
 ## Implementation ideas
