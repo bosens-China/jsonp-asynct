@@ -27,6 +27,17 @@ if (Ie.is(6, 11)) {
 }
 ```
 
+umd
+
+```html
+<script src="../dist/main.min.js"></script>
+<script>
+  if (Ie.is(6, 11)) {
+    // 如果是6-11执行一些操作
+  }
+</script>
+```
+
 ## doc
 
 ```js
