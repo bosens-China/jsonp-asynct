@@ -6,7 +6,7 @@
 
 [简体中文](/README.md) | English
 
-## 下载
+## download
 
 ```sh
 npm i ie-judgement
