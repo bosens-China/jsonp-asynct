@@ -83,7 +83,7 @@
       }
       var script = document.createElement("script");
       var href = encodeURI("" + url + splicingParams(par));
-      script.setAttribute("scr", href);
+      script.setAttribute("src", href);
       script.addEventListener("error", function () {
           clear();
           if (typeof fn !== "function") {

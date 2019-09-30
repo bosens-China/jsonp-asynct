@@ -62,7 +62,7 @@ const jsonp = function jsonp(
   const script = document.createElement("script");
   const href = encodeURI(`${url}${splicingParams(par)}`);
 
-  script.setAttribute("scr", href);
+  script.setAttribute("src", href);
   script.addEventListener("error", () => {
     clear();
     if (typeof fn !== "function") {
