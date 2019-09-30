@@ -84,10 +84,12 @@ var parameter = jsonp(url, options, callback);
 
 - `url (String)`: the target of the access, which can be the address containing the params parameter
 - `options?:Object`
-    - `params (Object)` Add the requested parameters
-    - `timeout (Number)` request timeout, default is `10000`, if not, it means no timeout
-    - `name (String)` is used to specify the name of the query string parameter of the callback. The default is `callback`
-    - `prefix (String)` global response jsonp callback name prefix, defaults to `__special`
+
+  - `params (Object)` Add the requested parameters
+  - `timeout (Number)` request timeout, default is `10000`, if not, it means no timeout
+  - `name (String)` is used to specify the name of the query string parameter of the callback. The default is `callback`
+  - `prefix (String)` global response jsonp callback name prefix, defaults to `__special`
+
 - `callback?:Function`: exists as a callback, the callback function takes two arguments
 
   - The first parameter error is empty, indicating that the request is successful, otherwise it is an error message.
