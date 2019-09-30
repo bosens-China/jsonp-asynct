@@ -1,17 +1,17 @@
 {
-  "name": "ie-judgement",
-  "version": "1.1.4",
+  "name": "jsonp-asynct",
+  "version": "1.0.0",
   "main": "dist/main.esm.min.js",
   "license": "MIT",
   "author": "boses",
-  "description": "判断ie版本",
+  "description": "简单易用的 jsonp 请求插件，支持并发请求和回调 promise 形式引用",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bosens-China/ie-judgement"
+    "url": "https://github.com/bosens-China/jsonp-asynct"
   },
-  "types": "src/main.d.ts",
+  "types": "src/types/jsonp.d.ts",
   "keywords": [
-    "ie",
+    "jsonp",
     "javascript",
     "ts"
   ],

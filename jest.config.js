@@ -1,5 +1,5 @@
 module.exports = {
-  collectCoverage: true,
+  // collectCoverage: true,
   transform: {
       '^.+\\.tsx?$': 'ts-jest',
   },

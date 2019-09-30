@@ -8,7 +8,7 @@ import {
 } from "rollup-plugin-terser";
 
 export default {
-  input: "./src/main.ts",
+  input: "./src/index.ts",
   plugins: [
     del({
       targets: "dist/*"
@@ -25,7 +25,7 @@ export default {
   output: [{
     file: "dist/main.min.js",
     format: "umd",
-    name: "Ie",
+    name: "jsonp",
     sourcemap: true,
   },
   {
@@ -36,7 +36,7 @@ export default {
   {
     file: "dist/main.js",
     format: "umd",
-    name: "Ie",
+    name: "jsonp",
     sourcemap: true,
   },
   {

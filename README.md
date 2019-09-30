@@ -1,67 +1,67 @@
-# ie-judgement
+# jsonp-Promise
 
-> 用于判断当前浏览器是否为 ie，以及判断当前所在 ie 版本号
+> 简单易用的 jsonp 请求插件，支持并发请求和回调 promise 形式引用
 
-![size](https://img.shields.io/badge/Minified%20Size-1.15%20KB-brightgreen) ![License](https://img.shields.io/badge/License-MIT-brightgreen)
+![size](https://img.shields.io/badge/size-1.33kb-brightgreen) ![License](https://img.shields.io/badge/License-MIT-brightgreen) ![version](https://img.shields.io/badge/version-v1.0.0-brightgreen)
 
-简体中文 | [English](/README-English.md)
-
-## 下载
+## 安装
 
 ```sh
-npm i ie-judgement
+npm i jsonp-asynct
 # or
-yarn add ie-judgement
+yarn add jsonp-asynct
 ```
 
-file：[umd-Ie](/dist/main.js)
+## 用法
+### promise
+``` js
+import jsonp from "jsonp-asynct";
+(async() => {
+  const data = await jsonp('url').promise;
+  // 一些操作
+})();
+```
 
-file：[umd-Ie min 文件](/dist/main.js)
 
-## 快速上手
+### 回调
+#### umd引用
+
+
+## API
 
 ```js
-import Ie from "ie-judgement";
-if (Ie.is(6, 11)) {
-  // 如果是6-11执行一些操作
-}
+var jsp = jsonp(url, options, callback);
 ```
 
-umd
+### 通用部分
 
-```html
-<script src="../dist/main.min.js"></script>
-<script>
-  if (Ie.is(6, 11)) {
-    // 如果是6-11执行一些操作
-  }
-</script>
-```
+- url (String)：访问的目标，可以是包含 params 参数的地址
+- options?:Object
+  - params (String) 用于指定回调的查询字符串参数的名称，默认为 callback
+  - timeout (Number) 请求超时时间，默认为 60000
+  - prefix (String) 全局响应 jsonp 的回调名称前缀，默认为\_\_special
 
-## doc
+### 回调
 
-```js
-function Ie(prefix = ["Moz", "Webkit", "O", "ms", "Khtml"]);
-// prefix:string[]
-```
+- callback?:Function
+  (err:Error|null,data:any) => void;
+  作为回调函数时存在，err 是一个错误对象如果存在则表明出现错误，第二个 data 为成功时的数据
 
-| 方法                                     | 类型    | 描述                        |
-| ---------------------------------------- | ------- | --------------------------- |
-| isIe                                     | boolean | 判断当前浏览器是否为 Ie     |
-| isEdge                                   | boolean | 判断当前浏览器是否为 Edge   |
-| detectCss(name: string)                  | boolean | 侦查当前浏览器 css 支持情况 |
-| public is(front: number, after?: number) | boolean | 根据给定参数判断是否为 ie   |
+- jsp
+  作为回调函数时 jsp 是一个函数，执行可以取消函数的执行
 
-## 兼容性
+### promise
 
-- module
+- callback:undefined
+  作为 promise 不存在
 
-  ie > 8
-
-- cmd
-
-  ie > 5
+- jsp:{promise: Promise,cancel: () => void}
+  作为 promise 时返回两个参数，cancel 表示提前取消，promise 承诺
 
 ## 实现思路
 
-[如何判断 ie 版本？](https://juejin.im/post/5d79b8b45188251ecc40d879)
+[用 TypeScript 造一个 jsonp 的轮子 #29](https://github.com/bosens-China/blog/issues/29)
+
+## 协议
+
+[MIT](/LICENSE)
