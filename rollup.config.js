@@ -7,8 +7,8 @@ import {
   terser
 } from "rollup-plugin-terser";
 
-export default {
-  input: "./src/index.ts",
+export default [{
+  input: "./src/index-umd.ts",
   plugins: [
     del({
       targets: "dist/*"
@@ -29,20 +29,37 @@ export default {
     sourcemap: true,
   },
   {
-    file: "dist/main.esm.min.js",
-    format: "es",
-    sourcemap: true,
-  },
-  {
     file: "dist/main.js",
     format: "umd",
     name: "jsonp",
     sourcemap: true,
   },
-  {
-    file: "dist/main.esm.js",
-    format: "es",
-    sourcemap: true,
-  },
   ]
-};
+}, {
+  input: "./src/index.ts",
+  plugins: [
+    // del({
+    //   targets: "dist/*"
+    // }),
+    typescript({
+      clean: true
+    }),
+    terser({
+      sourcemap: true,
+      include: [/^.+\.min\.js$/],
+    }),
+    filesize()
+  ],
+  output: [
+    {
+      file: "dist/main.esm.min.js",
+      format: "es",
+      sourcemap: true,
+    },
+    {
+      file: "dist/main.esm.js",
+      format: "es",
+      sourcemap: true,
+    },
+  ]
+}]

@@ -77,14 +77,14 @@ var jsonp = function jsonp(url, option, fn) {
     }
     var script = document.createElement("script");
     var href = encodeURI("" + url + splicingParams(par));
-    script.setAttribute("src", href);
-    script.addEventListener("error", function () {
+    script.src = href;
+    script.onerror = function () {
         clear();
         if (typeof fn !== "function") {
             return;
         }
         fn.call(_this, new Error("Failed to create jsonp, request target address is:" + url));
-    });
+    };
     document.body.appendChild(script);
     function clear() {
         if (script.parentElement) {
@@ -99,27 +99,23 @@ var jsonp = function jsonp(url, option, fn) {
 };
 
 if (typeof Object.assign != "function") {
-    Object.defineProperty(Object, "assign", {
-        value: function assign(target, varArgs) {
-            if (target == null) {
-                throw new TypeError("Cannot convert undefined or null to object");
-            }
-            var to = Object(target);
-            for (var index = 1; index < arguments.length; index++) {
-                var nextSource = arguments[index];
-                if (nextSource != null) {
-                    for (var nextKey in nextSource) {
-                        if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
-                            to[nextKey] = nextSource[nextKey];
-                        }
+    Object.assign = function assign(target, varArgs) {
+        if (target == null) {
+            throw new TypeError("Cannot convert undefined or null to object");
+        }
+        var to = Object(target);
+        for (var index = 1; index < arguments.length; index++) {
+            var nextSource = arguments[index];
+            if (nextSource != null) {
+                for (var nextKey in nextSource) {
+                    if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
+                        to[nextKey] = nextSource[nextKey];
                     }
                 }
             }
-            return to;
-        },
-        writable: true,
-        configurable: true
-    });
+        }
+        return to;
+    };
 }
 
 var jsonp$1 = function (url, option) {

@@ -1,8 +1,8 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
-  typeof define === 'function' && define.amd ? define(['exports'], factory) :
-  (global = global || self, factory(global.jsonp = {}));
-}(this, function (exports) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+  typeof define === 'function' && define.amd ? define(factory) :
+  (global = global || self, global.jsonp = factory());
+}(this, function () { 'use strict';
 
   var uid = 0;
   var symbolPolyfill = function (prefix) {
@@ -83,14 +83,14 @@
       }
       var script = document.createElement("script");
       var href = encodeURI("" + url + splicingParams(par));
-      script.setAttribute("src", href);
-      script.addEventListener("error", function () {
+      script.src = href;
+      script.onerror = function () {
           clear();
           if (typeof fn !== "function") {
               return;
           }
           fn.call(_this, new Error("Failed to create jsonp, request target address is:" + url));
-      });
+      };
       document.body.appendChild(script);
       function clear() {
           if (script.parentElement) {
@@ -105,27 +105,23 @@
   };
 
   if (typeof Object.assign != "function") {
-      Object.defineProperty(Object, "assign", {
-          value: function assign(target, varArgs) {
-              if (target == null) {
-                  throw new TypeError("Cannot convert undefined or null to object");
-              }
-              var to = Object(target);
-              for (var index = 1; index < arguments.length; index++) {
-                  var nextSource = arguments[index];
-                  if (nextSource != null) {
-                      for (var nextKey in nextSource) {
-                          if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
-                              to[nextKey] = nextSource[nextKey];
-                          }
+      Object.assign = function assign(target, varArgs) {
+          if (target == null) {
+              throw new TypeError("Cannot convert undefined or null to object");
+          }
+          var to = Object(target);
+          for (var index = 1; index < arguments.length; index++) {
+              var nextSource = arguments[index];
+              if (nextSource != null) {
+                  for (var nextKey in nextSource) {
+                      if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
+                          to[nextKey] = nextSource[nextKey];
                       }
                   }
               }
-              return to;
-          },
-          writable: true,
-          configurable: true
-      });
+          }
+          return to;
+      };
   }
 
   var jsonp$1 = function (url, option) {
@@ -143,12 +139,12 @@
           promise: promise
       };
   };
+  var indexUmd = {
+      callback: jsonp,
+      get: jsonp$1
+  };
 
-  exports.callback = jsonp;
-  exports.default = jsonp$1;
-  exports.get = jsonp$1;
-
-  Object.defineProperty(exports, '__esModule', { value: true });
+  return indexUmd;
 
 }));
 //# sourceMappingURL=main.js.map

@@ -101,6 +101,11 @@ var parameter = jsonp(url, options, callback);
     - cancel means cancel in advance;
     - promise indicates data requested in the future;
 
+## Compatibility
+
+- UMD: ie6+
+- Module: ie9+
+
 ## Agreement
 
 [MIT](/LICENSE)

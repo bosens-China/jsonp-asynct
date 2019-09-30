@@ -62,8 +62,8 @@ const jsonp = function jsonp(
   const script = document.createElement("script");
   const href = encodeURI(`${url}${splicingParams(par)}`);
 
-  script.setAttribute("src", href);
-  script.addEventListener("error", () => {
+  script.src = href;
+  script.onerror = () => {
     clear();
     if (typeof fn !== "function") {
       return;
@@ -72,7 +72,7 @@ const jsonp = function jsonp(
       this,
       new Error(`Failed to create jsonp, request target address is:${url}`)
     );
-  });
+  };
   document.body.appendChild(script);
   // 取消函数
   function clear() {

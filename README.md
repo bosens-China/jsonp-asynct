@@ -100,6 +100,11 @@ var parameter = jsonp(url, options, callback);
     - cancel 表示提前取消；
     - promise 表示未来请求的数据；
 
+## 兼容性
+
+- UMD： ie6+
+- Module: ie9+
+
 ## 实现思路
 
 [用 TypeScript 造一个 jsonp 的轮子](https://github.com/bosens-China/blog/issues/29)
