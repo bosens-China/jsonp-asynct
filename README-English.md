@@ -1,67 +1,104 @@
-# ie-judgement
+# jsonp-Promise
 
-> Used to determine whether the current browser is ie, and to determine the current version number of IE
+English | [中文](/README.md)
 
-![size](https://img.shields.io/badge/Minified%20Size-1.15%20KB-brightgreen) ![License](https://img.shields.io/badge/License-MIT-brightgreen)
+> Easy-to-use jsonp request plugin, support callback promise form reference
 
-[简体中文](/README.md) | English
+![size](https://img.shields.io/badge/size-1.33kb-brightgreen) ![License](https://img.shields.io/badge/License-MIT-brightgreen) ![version ](https://img.shields.io/badge/version-v1.0.0-brightgreen)
 
-## download
+## Installation
 
 ```sh
-npm i ie-judgement
+npm i jsonp-asynct
 # or
-yarn add ie-judgement
+yarn add jsonp-asynct
 ```
 
-file：[umd-Ie](/dist/main.js)
+[umd min.js](/dist/main.min.js)
 
-file：[umd-Ie min File](/dist/main.js)
+## usage
 
-## Quick start
+Using umd exposes the **jsonp** variable, which has callback and get for the callback request and the promise request, respectively.
+
+### UMD
+
+- promise
 
 ```js
-import Ie from "ie-judgement";
-if (Ie.is(6, 11)) {
-  // If it's 6-11, do something
-}
+const get = jsonp.get;
+const par = get("http://...");
+par.promise
+  .then(e => {
+    //e
+  })
+  .catch(e => {
+    //e
+  });
 ```
 
-umd
+- Callback
 
-```html
-<script src="../dist/main.min.js"></script>
-<script>
-  if (Ie.is(6, 11)) {
-  // If it's 6-11, do something
+```js
+const get = jsonp.callback;
+get("http://...", function(err, data) {
+  if (err) {
+    return;
   }
-</script>
+  // data
+});
 ```
 
-## doc
+### Module
+
+- promise
 
 ```js
-function Ie(prefix = ["Moz", "Webkit", "O", "ms", "Khtml"]);
-// prefix:string[]
+import jsonp from "jsonp-asynct";
+const par = jsonp("http://...");
+par.promise
+  .then(e => {
+    //e
+  })
+  .catch(e => {
+    //e
+  });
 ```
 
-| Method                                   | type    | describe                                                   |
-| ---------------------------------------- | ------- | ---------------------------------------------------------- |
-| isIe                                     | boolean | Determine whether the current browser is Ie                |
-| isEdge                                   | boolean | Determine whether the current browser is Edge              |
-| detectCss(name: string)                  | boolean | Detecting current browser CSS support                      |
-| public is(front: number, after?: number) | boolean | Judging whether it is ie according to the given parameters |
+- Callback
 
-## Compatibility
+```js
+import { callback } from "jsonp-asynct";
+callback("http://...", function(err, data) {
+  if (err) {
+    return;
+  }
+  // data
+});
+```
 
-- module
+## API
 
-  ie > 8
+```js
+var parameter = jsonp(url, options, callback);
+```
 
-- cmd
+- `url (String)`: the target of the access, which can be the address containing the params parameter
+- `options?:Object`
+    - `params (Object)` Add the requested parameters
+    - `timeout (Number)` request timeout, default is `10000`, if not, it means no timeout
+    - `name (String)` is used to specify the name of the query string parameter of the callback. The default is `callback`
+    - `prefix (String)` global response jsonp callback name prefix, defaults to `__special`
+- `callback?:Function`: exists as a callback, the callback function takes two arguments
 
-  ie > 5
+  - The first parameter error is empty, indicating that the request is successful, otherwise it is an error message.
+  - The second parameter data is the data at success
 
-## Implementation ideas
+- parameter
+  - parameter: `() => void`, as a callback function, parameter is a function, execution can cancel the execution of the function
+  - parameter: `{promise: Promise, cancel: () => void}`, returning two parameters as a promise
+    - cancel means cancel in advance;
+    - promise indicates data requested in the future;
 
-[How to judge ie version?](https://juejin.im/post/5d79b8b45188251ecc40d879)
+## Agreement
+
+[MIT](/LICENSE)

@@ -37,7 +37,7 @@ const jsonp = function jsonp(
     fn = option;
     option = {};
   }
-  const { name = "callback", timeout = 60000, params = {}, prefix } = option;
+  const { name = "callback", timeout = 10000, params = {}, prefix } = option;
   const id = getName(prefix);
   // 如果成功给回调函数传递值
   window[id] = (data: any) => {

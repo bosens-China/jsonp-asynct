@@ -54,7 +54,7 @@ var jsonp = function jsonp(url, option, fn) {
         fn = option;
         option = {};
     }
-    var _b = option.name, name = _b === void 0 ? "callback" : _b, _c = option.timeout, timeout = _c === void 0 ? 60000 : _c, _d = option.params, params = _d === void 0 ? {} : _d, prefix = option.prefix;
+    var _b = option.name, name = _b === void 0 ? "callback" : _b, _c = option.timeout, timeout = _c === void 0 ? 10000 : _c, _d = option.params, params = _d === void 0 ? {} : _d, prefix = option.prefix;
     var id = getName(prefix);
     window[id] = function (data) {
         clear();
