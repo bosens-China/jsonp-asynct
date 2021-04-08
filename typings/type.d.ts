@@ -12,16 +12,11 @@ declare global {
   }
 }
 
-interface jsonp {
-  <T = any>(url: string, parameter?: Record<string, any>, option?: IOption, fn?: ICallback<T>): Promise<T>;
-  <T = any>(url: string, parameter?: Record<string, any>, fn?: ICallback<T>): Promise<T>;
-  <T = any>(url: string, fn?: ICallback<T>): Promise<T>;
-  <T = any>(
-    url: string,
-    parameter?: Record<string, any> | ICallback<T>,
-    option?: IOption | ICallback<T>,
-    callback?: ICallback<T>,
-  ): Promise<T>;
-}
+function jsonp<T = any>(
+  url: string,
+  parameter?: Record<string, any> | ICallback<T>,
+  option?: IOption | ICallback<T>,
+  callback?: ICallback<T>,
+): Promise<T>;
 
 export default jsonp;

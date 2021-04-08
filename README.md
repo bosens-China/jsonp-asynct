@@ -1,6 +1,6 @@
 # jsonp-Promise
 
-![size](https://img.shields.io/badge/size-1.04kb-brightgreen) ![License](https://img.shields.io/badge/License-MIT-brightgreen) ![version](https://img.shields.io/badge/version-v1.0.4-brightgreen)
+![size](https://img.shields.io/badge/size-1.04kb-brightgreen) ![License](https://img.shields.io/badge/License-MIT-brightgreen)
 
 支持批量响应的 async jsonp 库，出现这个项目的原因是项目中使用 [jsonp](https://github.com/webmodules/jsonp) 库的时候多个请求同时请求会导致有问题，所以看了下源码改用 typeScript 实现了一版，顺便补充了模板声明文件
 

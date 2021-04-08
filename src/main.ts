@@ -1,4 +1,4 @@
-import Ijsonp, { IOption, ICallback } from '../typings/type';
+import { IOption, ICallback } from '../typings/type';
 import { isPromise, includes } from './utils';
 
 interface Ifn<T> extends ICallback<T> {
@@ -101,6 +101,6 @@ const jsonp = function <T = any>(
     });
   }
   return undefined;
-} as Ijsonp;
+};
 
 export default jsonp;

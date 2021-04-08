@@ -1,6 +1,6 @@
 {
   "name": "jsonp-asynct",
-  "version": "1.0.4",
+  "version": "1.0.7",
   "main": "./dist/main.min.js",
   "module": "./dist/main.esm.min.js",
   "license": "MIT",
