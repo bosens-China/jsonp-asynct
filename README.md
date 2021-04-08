@@ -42,48 +42,48 @@ jsonp(`http://localhost:3000/`, { age: 17 }).then((res) => {
 
 ## api
 
-### jsonp(url,parameter?,option?, callback?):Promise
+jsonp(url,parameter?,option?, callback?):Promise
 
 > 如果当前环境不包含 `Promise-polyfill` 则会返回 `undefined`
 
-#### url
+### url
 
 - type: `string`
 - required: `true`
 
 请求 jsonp 的地址，例如`http://localhost:3000/?name=zhangsan`等
 
-#### parameter
+### parameter
 
 - type:`object`
 - default: `{}`
 
 附加给 `url` 的查询参数，例如上面的地址，如果 `parameter`为`{age: 17}` ，最终发送的 url 则为`http://localhost:3000/?name=zhangsan&age=17`
 
-#### option
+### option
 
-##### param
+#### param
 
 - type: `string`
 - default: `callback`
 
 指定回调查询的字符串名称
 
-##### timeout
+#### timeout
 
 - type: `number | false`
 - default: `60000`
 
 最大等待时间，设置为 0 和 false 则表示无时间限制，如果超出等待时间会抛出错误
 
-##### prefix
+#### prefix
 
 - type: `string`
 - default: `__jp`
 
 用于设置全局函数的前缀，防止命名冲突
 
-##### name
+#### name
 
 - type: `string`
 - default: `${prefix}${count}`
@@ -92,7 +92,7 @@ jsonp(`http://localhost:3000/`, { age: 17 }).then((res) => {
 
 > 这个 `name` 尽量不要自行指定因为程序会执行一些副作用代码，比如响应 `Promise` 等
 
-#### callback
+### callback
 
 - type: `(err:Error|null, data: T) => void`
 
