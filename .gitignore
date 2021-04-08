@@ -8,7 +8,6 @@ coverage
 # Log files
 npm-debug.log*
 yarn-debug.log*
-yarn.*
 
 # Editor directories and files
 .idea
@@ -19,3 +18,4 @@ yarn.*
 *.sln
 *.sw?
 *.rar
+/dist

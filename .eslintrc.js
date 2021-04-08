@@ -1,16 +1,21 @@
 module.exports = {
+  extends: ['alloy', 'alloy/typescript'],
   env: {
+    // Your environments (which contains several predefined global variables)
+    //
     browser: true,
-    es6: true
+    node: true,
+    // mocha: true,
+    jest: true,
+    // jquery: true
   },
-  parserOptions: {
-    ecmaVersion: 6,
-    sourceType: "module",
-    ecmaFeatures: {
-      modules: true
-    }
+  plugins: ['prettier'],
+  globals: {
+    NodeJS: true,
   },
-  extends: "eslint-config-alloy/typescript",
-  parser: "@typescript-eslint/parser",
-  plugins: ["@typescript-eslint"]
+  rules: {
+    'prettier/prettier': 'error',
+    'max-params': 'off',
+    // Customize your rules
+  },
 };
