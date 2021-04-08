@@ -1,8 +1,8 @@
 {
   "name": "jsonp-asynct",
-  "version": "1.0.3",
-  "main": "dist/main.min.js",
-  "module": "dist/main.esm.min.js",
+  "version": "1.0.4",
+  "main": "./dist/main.min.js",
+  "module": "./dist/main.esm.min.js",
   "license": "MIT",
   "author": "boses",
   "description": "jsonp asynchronous request",
@@ -14,9 +14,10 @@
     "url": "https://github.com/bosens-China/jsonp-asynct/issues"
   },
   "files": [
-    "dist"
+    "dist",
+    "typings"
   ],
-  "types": "typings/type.d.ts",
+  "types": "./typings/type.d.ts",
   "keywords": [
     "jsonp",
     "javascript",

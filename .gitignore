@@ -18,4 +18,4 @@ yarn-debug.log*
 *.sln
 *.sw?
 *.rar
-/dist
+dist
